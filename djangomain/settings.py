@@ -100,7 +100,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     # Agrega aquí la URL de tu aplicación React en producción, por ejemplo:
-     "https://sereno.onrender.com",
+     "https://sereno-67ga.onrender.com",
 ]
 
 
