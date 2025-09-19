@@ -1,0 +1,39 @@
+# Bytecode de Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Archivos temporales del sistema
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Entornos virtuales (ajusta el nombre si es distinto)
+venv/
+env/
+ENV/
+
+# Archivos de configuración local
+*.env
+*.local
+*.sqlite3
+
+# Django: archivos generados automáticamente
+db.sqlite3
+media/
+staticfiles/
+
+# Archivos de migración (opcionales si no quieres subirlos al inicio)
+*/migrations/__pycache__/
+*/migrations/*.pyc
+*/migrations/*.pyo
+
+# Logs
+*.log
+
+# Archivos relacionados con PWA/Service Workers (opcional)
+
+
+superfox_front/src/package.json
+

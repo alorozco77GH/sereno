@@ -1,0 +1,352 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <!-- Enlace a tu archivo CSS externo -->
+    <link rel="stylesheet" href="{% static 'mainapp/css/style.css' %}">
+    <!-- Incluye la librería Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        /* Estilos generales para el cuerpo y la fuente */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:  #ffffff;
+        }
+
+        /* Estilos para el encabezado */
+        header {
+            width: 100%;
+            background-color: rgba(13, 26, 38, 0.8);
+            color: #ffffff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: saturate(120%) blur(6px);
+        }
+
+        .logo-container img {
+            height: 50px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        /* Contenedor de la sección principal para el efecto de partículas */
+        .hero-section {
+            position: relative; /* Clave para posicionar el efecto de forma absoluta dentro de esta sección */
+            z-index: 1; /* Asegura que la sección y su contenido estén por encima de otros elementos, si los hubiera */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 2rem;
+            box-sizing: border-box;
+            background-color: #0d1a26; /* Fondo para que las partículas se vean */
+            overflow: hidden; /* Oculta cualquier partícula que se salga de la sección */
+        }
+
+        /* Contenedor del efecto de partículas */
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Coloca el efecto detrás del contenido de la sección */
+        }
+
+        /* Estilo para el contenido principal (título y texto) */
+        .hero-content {
+            position: relative;
+            z-index: 1; /* Asegura que el texto esté por encima de las partículas */
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .btn-conoce-mas, .btn-comienza {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2a73cc;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-conoce-mas:hover, .btn-comienza:hover {
+            background-color: #1a59a3;
+        }
+
+        /* Estilos para las otras secciones */
+        .belief-section, .about-section, .team-section, .cta-section {
+            background: linear-gradient(135deg, #1e3a52 0%, #1a3346 100%);
+            color: #ffffff;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 4rem auto 2rem auto;
+            border-radius: 14px;
+            max-width: 1100px;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Títulos de sección con subrayado decorativo */
+        .belief-heading, .about-title, .team-title, .cta-title {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin: 0 0 1rem 0;
+            position: relative;
+        }
+
+        .belief-heading::after, .about-title::after, .team-title::after, .cta-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            margin: 12px auto 0 auto;
+            background: linear-gradient(90deg, #2a73cc, #67b0ff);
+            border-radius: 2px;
+        }
+
+        /* Tipografía de párrafos en secciones */
+        .belief-text, .about-text, .team-text, .cta-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            font-size: 1.05rem;
+            margin: 0.75rem auto 0;
+            max-width: 800px;
+        }
+
+        /* Layout de bloques About/Team */
+        .about-section .about-container, .team-section .team-container {
+            gap: 2.5rem;
+        }
+
+        .about-content, .team-content {
+            max-width: 540px;
+        }
+
+        /* Imágenes con borde suave y efecto sutil */
+        .about-image img, .team-image img {
+            border-radius: 12px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+            transition: transform 300ms ease, box-shadow 300ms ease;
+        }
+
+        .about-image img:hover, .team-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
+        }
+
+        /* CTA un poco más destacada */
+        .cta-section {
+            background: linear-gradient(135deg, #1f4963 0%, #1a3346 100%);
+        }
+
+        /* Botones consistentes dentro de secciones */
+        .belief-section .btn-conoce-mas,
+        .about-section .btn-conoce-mas,
+        .team-section .btn-conoce-mas,
+        .cta-section .btn-comienza {
+            margin-top: 1.5rem;
+            padding: 12px 24px;
+            border-radius: 8px;
+        }
+
+        .about-section .about-container, .team-section .team-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .about-image img, .team-image img {
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Responsividad básica para pantallas más pequeñas */
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="{% static 'mainapp/images/logo.png' %}" alt="Logo de la empresa">
+        </div>
+        <nav>
+            <a href="{% url 'mainapp:inicio' %}">Inicio</a>
+            <a href="{% url 'mainapp:nosotros' %}">Nosotros</a>
+            <a href="{% url 'mainapp:servicios' %}">Servicios</a>
+            <a href="{% url 'mainapp:equipo' %}">Equipo</a>
+            <a href="{% url 'mainapp:contactanos' %}">Contáctanos</a>
+            <a href="{% url 'mainapp:contactanos_2' %}">Contáctanos_2</a>
+            <a href="{% url 'mainapp:enlaces' %}">Enlaces</a>
+        </nav>
+    </header>
+
+    <!-- Secciones de la página -->
+    <section class="hero-section">
+        <!-- El contenedor de partículas ahora está dentro de esta sección -->
+        <div id="particles-js"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Serenar es crecer: Estrategias empresariales</h1>
+            <p class="hero-subtitle">Transformamos organizaciones a través de la serenidad como principio de desarrollo.</p>
+            <a href="{% url 'mainapp:servicios' %}" class="btn-conoce-mas">Conoce más</a>
+        </div>
+    </section>
+
+    <section class="belief-section">
+        <h2 class="belief-heading">CREEMOS EN QUE</h2>
+        <p class="belief-text">Las organizaciones serenas son las que vencen la ansiedad competitiva, se diferencian y se vuelven inimitables en sus mercados.</p>
+    </section>
+
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-content">
+                <h2 class="about-title">Quiénes somos:</h2>
+                <p class="about-text">En un entorno global caracterizado por la volatilidad y la incertidumbre, Sereno Consulting Group emerge como una firma de consultoría innovadora que está redefiniendo el éxito empresarial y el bienestar organizacional a través de un enfoque revolucionario: la serenidad como base de la consolidación de la ventaja competitiva.</p>
+                <a href="{% url 'mainapp:nosotros' %}" class="btn-conoce-mas">Conoce más</a>
+            </div>
+            <div class="about-image">
+                <img src="https://placehold.co/600x400/1e3a52/ffffff?text=Quienes+Somos" alt="Imagen representativa de Sereno Consulting">
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="team-container">
+            <div class="team-image">
+                <img src="https://placehold.co/600x400/1e3a52/ffffff?text=Nuestro+Equipo" alt="Equipo de Sereno Consulting">
+            </div>
+            <div class="team-content">
+                <h2 class="team-title">Nuestro equipo:</h2>
+                <p class="team-text">Formados en prestigiosas instituciones y con experiencia en transformación organizacional, nuestro equipo lidera con el ejemplo, combinando profesionalismo, innovación y compromiso con resultados medibles.</p>
+                <a href="{% url 'mainapp:equipo' %}" class="btn-conoce-mas">Conoce más</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">Tu compañía está a un paso de convertir la serenidad estratégica en la base de su crecimiento rentable a largo plazo.</h2>
+            <p class="cta-subtitle">Déjanos contarte nuestro método</p>
+            <a href="{% url 'mainapp:contactanos' %}" class="btn-comienza">Comienza ahora</a>
+        </div>
+    </section>
+    
+    <!-- Script para inicializar Particles.js -->
+    <script>
+        window.onload = function() {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false,
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 6,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab" /* Modo para que las partículas reaccionen al pasar el cursor */
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push" /* Modo para que las partículas se dispersen al hacer clic */
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 150,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        }
+                    }
+                }
+            });
+        };
+    </script>
+</body>
+</html>
+
