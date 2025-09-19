@@ -28,7 +28,8 @@ SECRET_KEY = 'django-insecure-m&ihk_af&xy%=dmlcu1x3l30(!#ul=!)#+a-+1kdcj=-&g*e!1
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "sereno.onrender.com",  # your Render subdomain
+    "sereno.onrender.com",
+      "sereno-67ga.onrender.com"  # your Render subdomain
     "localhost",
     "127.0.0.1",
     # Add any custom domains here
