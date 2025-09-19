@@ -27,7 +27,12 @@ SECRET_KEY = 'django-insecure-m&ihk_af&xy%=dmlcu1x3l30(!#ul=!)#+a-+1kdcj=-&g*e!1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "sereno.onrender.com",  # your Render subdomain
+    "localhost",
+    "127.0.0.1",
+    # Add any custom domains here
+]
 
 
 # Application definition
@@ -90,6 +95,13 @@ else:
         }
     }
 
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    # Agrega aquí la URL de tu aplicación React en producción, por ejemplo:
+     "https://sereno.onrender.com",
+]
 
 
 # DATABASES = {
