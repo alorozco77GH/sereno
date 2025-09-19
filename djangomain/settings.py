@@ -102,8 +102,7 @@ CORS_ALLOWED_ORIGINS = [
     # Agrega aquí la URL de tu aplicación React en producción, por ejemplo:
      "https://sereno-67ga.onrender.com",
 ]
-
-
+#sssss
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
