@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "sereno.onrender.com",
-      "sereno-67ga.onrender.com"  # your Render subdomain
+    "sereno-67ga.onrender.com",  # your Render subdomain
     "localhost",
     "127.0.0.1",
     # Add any custom domains here
@@ -101,7 +101,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     # Agrega aquí la URL de tu aplicación React en producción, por ejemplo:
-     "https://sereno-67ga.onrender.com",
+     "sereno-67ga.onrender.com",
 ]
 #sssss
 # DATABASES = {
