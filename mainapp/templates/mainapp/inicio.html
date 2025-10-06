@@ -5,45 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
-    <!-- Enlace a tu archivo CSS externo -->
     <link rel="stylesheet" href="{% static 'mainapp/css/style.css' %}">
-    <!-- Incluye la librería Particles.js -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
-        /* Estilos generales para el cuerpo y la fuente */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color:  #ffffff;
-        }
-
-        /* Estilos para el encabezado */
-        header {
-            width: 100%;
-            background-color: rgba(13, 26, 38, 0.8);
-            color: #ffffff;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: saturate(120%) blur(6px);
-        }
-
-        .logo-container img {
-            height: 50px;
-        }
-
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: bold;
-        }
-
+       
         /* Contenedor de la sección principal para el efecto de partículas */
         .hero-section {
             position: relative; /* Clave para posicionar el efecto de forma absoluta dentro de esta sección */
@@ -53,10 +18,11 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: #ffffff;
+            color: "070606";
             padding: 2rem;
             box-sizing: border-box;
-            background-color: #0d1a26; /* Fondo para que las partículas se vean */
+           /* background-color: #0d1a26; /* Fondo para que las partículas se vean */
+            background-color:#FFF6ED; /* Fondo para que las partículas se vean */
             overflow: hidden; /* Oculta cualquier partícula que se salga de la sección */
         }
 
@@ -90,7 +56,7 @@
             display: inline-block;
             padding: 10px 20px;
             background-color: #2a73cc;
-            color: #ffffff;
+            color: #000000;
             text-decoration: none;
             border-radius: 5px;
             margin-top: 20px;
@@ -104,7 +70,7 @@
         /* Estilos para las otras secciones */
         .belief-section, .about-section, .team-section, .cta-section {
             background: linear-gradient(135deg, #1e3a52 0%, #1a3346 100%);
-            color: #ffffff;
+            color: #000000;
             padding: 4rem 2rem;
             text-align: center;
             margin: 4rem auto 2rem auto;
@@ -195,11 +161,12 @@
         /* Responsividad básica para pantallas más pequeñas */
         @media (max-width: 600px) {
             .hero-title {
-                font-size: 2rem;
+                font-size: 4rem;
             }
 
             .hero-subtitle {
-                font-size: 1.2rem;
+                /*font-size: 1.2rem;*/
+                font-size: 1000rem;
             }
         }
     </style>
@@ -214,7 +181,6 @@
             <a href="{% url 'mainapp:nosotros' %}">Nosotros</a>
             <a href="{% url 'mainapp:servicios' %}">Servicios</a>
             <a href="{% url 'mainapp:equipo' %}">Equipo</a>
-            <a href="{% url 'mainapp:contactanos' %}">Contáctanos</a>
             <a href="{% url 'mainapp:contactanos_2' %}">Contáctanos_2</a>
             <a href="{% url 'mainapp:enlaces' %}">Enlaces</a>
         </nav>
@@ -225,7 +191,7 @@
         <!-- El contenedor de partículas ahora está dentro de esta sección -->
         <div id="particles-js"></div>
         <div class="hero-content">
-            <h1 class="hero-title">Serenar es crecer: Estrategias empresariales</h1>
+            <h1 class="hero-title">Serenar es crecer: Estrategias experiencia</h1>
             <p class="hero-subtitle">Transformamos organizaciones a través de la serenidad como principio de desarrollo.</p>
             <a href="{% url 'mainapp:servicios' %}" class="btn-conoce-mas">Conoce más</a>
         </div>
@@ -283,7 +249,7 @@
                         }
                     },
                     "color": {
-                        "value": "#ffffff"
+                        "value": "#000000"
                     },
                     "shape": {
                         "type": "circle",
@@ -306,7 +272,7 @@
                     "line_linked": {
                         "enable": true,
                         "distance": 150,
-                        "color": "#ffffff",
+                        "color": "#000000",
                         "opacity": 0.4,
                         "width": 1
                     },
